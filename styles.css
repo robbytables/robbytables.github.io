@@ -42,9 +42,9 @@ nav {
     color: #e29578;
     text-transform: uppercase;
     letter-spacing: 1px;
-    text-align: center;
+    text-align: right;
     position: absolute;
-    left: 50%;
+    left: 70%;
     transform: translateX(-50%);
 }
 
