@@ -1,280 +1,398 @@
-<!DOCTYPE HTML>
-<html>
-	<head>
-		<title>Active Listening Photography</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="assets/css/main.css" />
-		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
-	</head>
-	<body class="is-preload">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Land Your Dream SWE Job | Robby Grodin Career Coaching</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">
+                    <div class="logo-name">Robby Grodin</div>
+                    <div class="logo-subtitle">Career Coach</div>
+                </div>
+                <div class="program-header">September '25 Career Intensive</div>
+            </nav>
+        </div>
+    </header>
 
-		<!-- Wrapper -->
-			<div id="wrapper">
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <!-- Geometric decoration -->
+            <svg class="hero-decoration" viewBox="0 0 180 180" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect x="20" y="20" width="50" height="50" rx="8" stroke="#e29578" stroke-width="3" fill="none"/>
+                <rect x="100" y="40" width="30" height="30" rx="4" fill="#e29578"/>
+                <circle cx="40" cy="120" r="20" fill="#f4d5c8"/>
+                <rect x="120" y="100" width="40" height="40" rx="20" fill="#e29578" opacity="0.6"/>
+            </svg>
+            
+            <h1>Land Your Dream SWE Job</h1>
+            <p class="hero-tagline">4-week career coaching intensive created to help software engineers get higher offers and better roles.</p>
+            
+            <div class="hero-content">
+                <div class="cohort-info">
+                    <h3>September Cohort Now Open</h3>
+                    <p>Limited to 10 Engineers • Applications close August 30, 2025</p>
+                </div>
+                <div class="hero-description">
+                    I use a combination of expert-led small-group and 1:1 coaching along with student-led questions to prepare you for building ATS-friendly resumes, behavioral and technical interview rounds, offer negotiation, and anything else you may encounter in today's job market.
+                </div>
+            </div>
+           
+            <button onclick="showApplicationForm()" class="large-cta">Apply for September Cohort</button>
+            <p style="margin-top: 16px;"><a href="#how-to-apply" style="color: #4a5568; text-decoration: underline; font-size: 16px;">Learn about the application process</a></p>
+            
+            <div class="section-divider"></div>
+        </div>
+    </section>
 
-				<!-- Header -->
-					<header id="header">
-                                          <h1><strong>Active Listening Photography</strong> Robby Grodin</h1>
-						<nav>
-							<ul>
-								<li><a href="#footer" class="icon solid fa-info-circle">About</a></li>
-							</ul>
-						</nav>
-					</header>
+    <!-- What's Included -->
+    <section class="section section-alt" style="padding-top: 30px;">
+        <div class="container">
+            <h2 class="section-title">What's Included</h2>
+            <div class="features-grid">
+                <div class="feature-card fade-in">
+                    <div class="feature-icon icon-group">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#2d3748" stroke-width="2">
+                            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                            <circle cx="9" cy="7" r="4"/>
+                            <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                            <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                        </svg>
+                    </div>
+                    <h4>Weekly Group Sessions</h4>
+                    <p>60-minute structured small group conversations led by Robby. Share experiences, discuss job search topics, build meaningful peer connections, and get your questions answered in a supportive, intimate setting.</p>
+                </div>
+                <div class="feature-card fade-in">
+                    <div class="feature-icon icon-design">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#2d3748" stroke-width="2">
+                            <polygon points="12 2 22 8.5 22 15.5 12 22 2 15.5 2 8.5 12 2"/>
+                            <line x1="12" y1="22" x2="12" y2="15.5"/>
+                            <polyline points="22 8.5 12 15.5 2 8.5"/>
+                        </svg>
+                    </div>
+                    <h4>System Design Deep Dives</h4>
+                    <p>60-minute sessions featuring mock interviews, group design challenges, or reverse mocks. Master strategies, approaches, and technologies in depth.</p>
+                </div>
+                <div class="feature-card feature-highlight fade-in">
+                    <div class="feature-icon icon-coaching">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#e29578" stroke-width="2">
+                            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                            <circle cx="12" cy="7" r="4"/>
+                        </svg>
+                    </div>
+                    <h4>1:1 Coaching (Up to 2hrs/week)</h4>
+                    <p>Priority scheduling for individual coaching sessions ($2k value). Focus on resume/LinkedIn optimization, job targeting, mock interviews, and personalized coaching.</p>
+                </div>
+                <div class="feature-card fade-in">
+                    <div class="feature-icon icon-support">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#2d3748" stroke-width="2">
+                            <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
+                        </svg>
+                    </div>
+                    <h4>Unlimited "Finish Line" Support</h4>
+                    <p>Unlimited access to coaching for final-stage topics like negotiation, choosing between offers, and closing deals. Be confident in your decisions.</p>
+                </div>
+                <div class="feature-card fade-in">
+                    <div class="feature-icon icon-community">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#2d3748" stroke-width="2">
+                            <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/>
+                        </svg>
+                    </div>
+                    <h4>Private Community Access</h4>
+                    <p>Connect with Robby and your cohort members in a welcoming private community. Coordinate group study sessions, celebrate wins together, and lean on each other for support throughout your journey.</p>
+                </div>
+                <div class="feature-card fade-in">
+                    <div class="feature-icon icon-evolving">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#2d3748" stroke-width="2">
+                            <path d="M23 4v6h-6"/>
+                            <path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"/>
+                        </svg>
+                    </div>
+                    <h4>Constantly Evolving</h4>
+                    <p>This is a living practice that will be highly customized to your cohort's needs. Content and approach adapts based on what will serve you best.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-				<!-- Main -->
-					<div id="main">
-            <article class="thumb">
-							<a href="https://drive.google.com/thumbnail?id=1bceMBbTRSw3NYF7ApFL2PP-yGUiu8ACX&sz=w4000" class="image"><img src="https://drive.google.com/thumbnail?id=1bceMBbTRSw3NYF7ApFL2PP-yGUiu8ACX&sz=w500" alt="" /></a>
-							<h2>Chepang</h2>
-							<p>Chepang "JHYAPPA" Release @ TV Eye, NYC // 7.5.2025</p>
-						</article>
-						<article class="thumb">
-							<a href="https://drive.google.com/thumbnail?id=1pboi84xJWpL4QJc0rxtZKagPGUgMPxzS&sz=w4000" class="image"><img src="https://drive.google.com/thumbnail?id=1pboi84xJWpL4QJc0rxtZKagPGUgMPxzS&sz=w500" alt="" /></a>
-							<h2>Chepang</h2>
-							<p>Chepang "JHYAPPA" Release @ TV Eye, NYC // 7.5.2025</p>
-						</article>
+    <!-- Pricing Structure -->
+    <section class="pricing-structure">
+        <div class="container">
+            <div class="pricing-breakdown">
+                <h3>Program Pricing</h3>
+                <div class="pricing-details">
+                    <div class="pricing-detail fade-in">
+                        <h4>Total Investment</h4>
+                        <p>$2,000 for the 4-week intensive program.</p>
+                    </div>
+                    <div class="pricing-detail fade-in">
+                        <h4>Payment Schedule</h4>
+                        <p>25% deposit ($500) to secure your spot. Remaining balance due on day 1 of the cohort.</p>
+                    </div>
+                </div>
+                <p class="pricing-note">
+                    I believe in transparency. This investment covers expert guidance, small group attention, and comprehensive support throughout your job search journey. Everyone's path will be unique, and some searches will take longer than others. I make no guarantee that participation in coaching will lead to employment. For those who do not feel this cohort is providing them the support they need, they may withdraw before the start of week 2 and receive a pro-rated refund.
+                </p>
+            </div>
+        </div>
+    </section>
 
+    <!-- Meet Your Coach -->
+    <section class="section section-alt">
+        <div class="container">
+            <h2 class="section-title">Meet Your Coach</h2>
+            <div class="about-card fade-in">
+                <img src="https://lh3.googleusercontent.com/a/ACg8ocIww8D9pkiaGTwmtq4jz_aUxkc2o89HEpv7pETq53XavoKopffB7g=s576-c-no" alt="Robby Grodin" class="coach-photo">
+                <h3>Robby Grodin</h3>
+                <p>Seasoned software engineer, tech leader, startup advisor, and career coach who's passionate about helping engineers navigate their career journeys. From junior developers to senior engineers, I've had the privilege of guiding hundreds through successful job transitions, negotiations, and career pivots in the tech industry.</p>
+            </div>
+        </div>
+    </section>
 
-						<article class="thumb">
-							<a href="https://drive.google.com/thumbnail?id=1eGEdcaPOeqDtL3lFLqB3kb_QdAtdHk-v&sz=w4000" class="image"><img src="https://drive.google.com/thumbnail?id=1eGEdcaPOeqDtL3lFLqB3kb_QdAtdHk-v&sz=w500" alt="" /></a>
-							<h2>Insect Ark</h2>
-							<p>Insect Ark @ The Woodshop, NYC // 6.13.2025</p>
-						</article>
-						<article class="thumb">
-							<a href="https://drive.google.com/thumbnail?id=1rpVLxHPlugGphz6sXO9-_lc2c20szKuQ&sz=w4000" class="image"><img src="https://drive.google.com/thumbnail?id=1rpVLxHPlugGphz6sXO9-_lc2c20szKuQ&sz=w500" alt="" /></a>
-							<h2>Coma Hole</h2>
-							<p>Coma Hole @ The Woodshop, NYC // 6.13.2025</p>
-						</article>						<article class="thumb">
-							<a href="https://drive.google.com/thumbnail?id=19fBSL6k0jcws5A_yceRFRTiYMuS6Imus&sz=w4000" class="image"><img src="https://drive.google.com/thumbnail?id=19fBSL6k0jcws5A_yceRFRTiYMuS6Imus&sz=w500" alt="" /></a>
-							<h2>Woe</h2>
-							<p>Woe @ El Bunker Del Diablo, NYC // 6.6.2025</p>
-						</article>
-						<article class="thumb">
-							<a href="https://drive.google.com/thumbnail?id=1wKUGaxBClAr2GQbomYwJG38-f5uA99f5&sz=w4000" class="image"><img src="https://drive.google.com/thumbnail?id=1wKUGaxBClAr2GQbomYwJG38-f5uA99f5&sz=w500" alt="" /></a>
-							<h2>Woe</h2>
-							<p>Woe @ El Bunker Del Diablo, NYC // 6.6.2025</p>
-						</article>
-						<article class="thumb">
-							<a href="https://drive.google.com/thumbnail?id=1Jz5UcTwbuBSShsMW8BetRvSKV1hWYwiK&sz=w4000" class="image"><img src="https://drive.google.com/thumbnail?id=1Jz5UcTwbuBSShsMW8BetRvSKV1hWYwiK&sz=w500" alt="" /></a>
-							<h2>Satanic Magick</h2>
-							<p>Satanic Magick @ El Bunker Del Diablo, NYC // 6.6.2025</p>
-						</article>
-						<article class="thumb">
-							<a href="https://drive.google.com/thumbnail?id=1qnCHPNLo5RYLD2PDh0wsJnndyi3o_N0K&sz=w4000" class="image"><img src="https://drive.google.com/thumbnail?id=1qnCHPNLo5RYLD2PDh0wsJnndyi3o_N0K&sz=w500" alt="" /></a>
-							<h2>Satanic Magick</h2>
-							<p>Satanic Magick @ El Bunker Del Diablo, NYC // 6.6.2025</p>
-						</article>
-            <article class="thumb">
-							<a href="https://drive.google.com/thumbnail?id=13tSJqNDWO7iRh4Yw_4PSTPjTIionZxlN&sz=w4000" class="image"><img src="https://drive.google.com/thumbnail?id=13tSJqNDWO7iRh4Yw_4PSTPjTIionZxlN&sz=w500" alt="" /></a>
-							<h2>Sunrot</h2>
-							<p>Sunrot @ Gold Sounds, NYC // 5.29.2025</p>
-						</article>            
-            <article class="thumb">
-							<a href="https://drive.google.com/thumbnail?id=1AkhqB8a6AHrhOnCEPc7HbO3hmwYHyUEp&sz=w4000" class="image"><img src="https://drive.google.com/thumbnail?id=1AkhqB8a6AHrhOnCEPc7HbO3hmwYHyUEp&sz=w500" alt="" /></a>
-							<h2>Sunrot</h2>
-							<p>Sunrot @ Gold Sounds, NYC // 5.29.2025</p>
-						</article>            
-            <article class="thumb">
-							<a href="https://drive.google.com/thumbnail?id=1Y9IVU-JjHrr1xuOWpNcbiLGLXHUVCHPZ&sz=w4000" class="image"><img src="https://drive.google.com/thumbnail?id=1Y9IVU-JjHrr1xuOWpNcbiLGLXHUVCHPZ&sz=w500" alt="" /></a>
-							<h2>The Body</h2>
-							<p>The Body @ Gold Sounds, NYC // 5.29.2025</p>
-						</article>						
-            <article class="thumb">
-							<a href="https://drive.google.com/thumbnail?id=1RzA2RNXbOZkGApHFvrsKMdTCTzG7yxy2&sz=w4000" class="image"><img src="https://drive.google.com/thumbnail?id=1RzA2RNXbOZkGApHFvrsKMdTCTzG7yxy2&sz=w500" alt="" /></a>
-							<h2>Sunrot</h2>
-							<p>Sunrot @ TV Eye, NYC // 4.20.2025</p>
-						</article>
-						<article class="thumb">
-							<a href="https://drive.google.com/thumbnail?id=1XQva59y2YFcaj9jIHNoi_F6TGBS9VNJz&sz=w4000" class="image"><img src="https://drive.google.com/thumbnail?id=1XQva59y2YFcaj9jIHNoi_F6TGBS9VNJz&sz=w500" alt="" /></a>
-							<h2>Sunrot</h2>
-							<p>Sunrot @ TV Eye, NYC // 4.20.2025</p>
-						</article>
+    <!-- Target Audience -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Who is this for?</h2>
+            <div class="target-grid">
+                <div class="target-item fade-in">
+                    <h4>Active Job Seekers</h4>
+                    <p>Whether you're currently employed or searching full-time, you're actively looking for your next opportunity and ready to commit to the process.</p>
+                </div>
+                <div class="target-item fade-in">
+                    <h4>Experienced Engineers</h4>
+                    <p>Software engineers with industry experience at any level. I'm not currently accepting new college graduates.</p>
+                </div>
+                <div class="target-item fade-in">
+                    <h4>Underrepresented Groups</h4>
+                    <p>Strong preference towards members of underrepresented groups in tech. I'm committed to creating diverse, inclusive cohorts.</p>
+                </div>
+            </div>
+            <p style="text-align: center; color: #4a5568; margin-top: 32px; font-style: italic;">Note: This intensive is designed for engineers with professional experience and is not suitable for recent graduates or entry-level candidates.</p>
+        </div>
+    </section>
 
-						<article class="thumb">
-							<a href="https://drive.google.com/thumbnail?id=1_ppEHra876fqSF08MN3p8T6fgcWn1iOV&sz=w4000" class="image"><img src="https://drive.google.com/thumbnail?id=1_ppEHra876fqSF08MN3p8T6fgcWn1iOV&sz=w500" alt="" /></a>
-							<h2>Rabbit</h2>
-							<p>Rabbit @ TV Eye, NYC // 2.1.2025</p>
-						</article>
-                                                <article class="thumb">
-							<a href="https://drive.google.com/thumbnail?id=1LinGzbeLalRIXA78damdDZJGbs0Zj1IL&sz=w4000" class="image"><img src="https://drive.google.com/thumbnail?id=1LinGzbeLalRIXA78damdDZJGbs0Zj1IL&sz=w500" alt="" /></a>
-							<h2>Converge</h2>
-							<p>Jacob Bannon of Converge @ Metal Injection Fest, NYC // 9.22.2024</p>
-						</article>
-                                                <article class="thumb">
-							<a href="https://drive.google.com/thumbnail?id=1BcA3xIL82qel1BhQ-GuJ7-fELquKxAEs&sz=w4000" class="image"><img src="https://drive.google.com/thumbnail?id=1BcA3xIL82qel1BhQ-GuJ7-fELquKxAEs&sz=w500" alt="" /></a>
-							<h2>Sunrot</h2>
-							<p>Sunrot Promo Shoot // 2025</p>
-						</article>
-                                                <article class="thumb">
-							<a href="https://drive.google.com/thumbnail?id=18BP_2pxIzKsiepWILlEseVWTLP0l6vSo&sz=w4000" class="image"><img src="https://drive.google.com/thumbnail?id=18BP_2pxIzKsiepWILlEseVWTLP0l6vSo&sz=w500" alt="" /></a>
-							<h2>Sunrot</h2>
-							<p>Sunrot Promo Shoot // 2025</p>
-						</article>
-                                                <article class="thumb">
-							<a href="https://drive.google.com/thumbnail?id=1YTnUJjkV6tXuWtBA847Vm0oQFOShRS7K&sz=w4000" class="image"><img src="https://drive.google.com/thumbnail?id=1YTnUJjkV6tXuWtBA847Vm0oQFOShRS7K&sz=w500" alt="" /></a>
-							<h2>Snuffed On Sight</h2>
-							<p>Spencer Metela of Snuffed On Sight @ The Meadows, NYC // 8.11.2024</p>
-						</article>
-                                                <article class="thumb">
-							<a href="https://drive.google.com/thumbnail?id=1SCDfLwkJ6cHmJTRjamJoBdu5sgdWtJdd&sz=w4000" class="image"><img src="https://drive.google.com/thumbnail?id=1SCDfLwkJ6cHmJTRjamJoBdu5sgdWtJdd&sz=w500" alt="" /></a>
-							<h2>Taraneh</h2>
-							<p>Taraneh @ TV Eye, NYC // 2.1.2025</p>
-						</article>
-                                                <article class="thumb">
-							<a href="https://drive.google.com/thumbnail?id=1zN1GXSeXI91LWZJd8ZJIXl3LkvqtAw6O&sz=w4000" class="image"><img src="https://drive.google.com/thumbnail?id=1zN1GXSeXI91LWZJd8ZJIXl3LkvqtAw6O&sz=w500" alt="" /></a>
-							<h2>Taraneh</h2>
-							<p>Taraneh @ TV Eye, NYC // 2.1.2025</p>
-						</article>
-                                                <article class="thumb">
-							<a href="https://drive.google.com/thumbnail?id=14BBBG1ogKpyYtUr-LcrhgD4kzoQ9rio0&sz=w4000" class="image"><img src="https://drive.google.com/thumbnail?id=14BBBG1ogKpyYtUr-LcrhgD4kzoQ9rio0&sz=w500" alt="" /></a>
-							<h2>Portrayal Of Guilt</h2>
-							<p>Portrayal Of Guilt @ TV Eye, NYC // 2.1.2025</p>
-						</article>
-                                                <article class="thumb">
-							<a href="https://drive.google.com/thumbnail?id=1RPxzEwISVWAmJNw8uGaC6W5p-IUwDFOA&sz=w4000" class="image"><img src="https://drive.google.com/thumbnail?id=1RPxzEwISVWAmJNw8uGaC6W5p-IUwDFOA&sz=w500" alt="" /></a>
-                                                        <h2>Pharmakon</h2>
-							<p>Pharmakon @ Union Pool, NYC // 12.1.2024</p>
-						</article>
-                                                <article class="thumb">
-							<a href="https://drive.google.com/thumbnail?id=15b-zjqYs8PUsL7perw-Q4oEdWxICQ8h4&sz=w4000" class="image"><img src="https://drive.google.com/thumbnail?id=15b-zjqYs8PUsL7perw-Q4oEdWxICQ8h4&sz=w500" alt="" /></a>
-							<h2>Uniform</h2>
-							<p>Uniform @ Union Pool, NYC // 12.1.2024</p>
-						</article>
-                                                <article class="thumb">
-							<a href="https://drive.google.com/thumbnail?id=11jlBK9cXBiJTQ2GIL4-eI0e43ujrKZQq&sz=w4000" class="image"><img src="https://drive.google.com/thumbnail?id=11jlBK9cXBiJTQ2GIL4-eI0e43ujrKZQq&sz=w500" alt="" /></a>
-							<h2>Uniform</h2>
-							<p>Uniform @ Union Pool, NYC // 12.1.2024</p>
-						</article>
-                                                <article class="thumb">
-							<a href="https://drive.google.com/thumbnail?id=18D-8PomlJ_3nGAGrpTOyPliVIVArn4Si&sz=w4000" class="image"><img src="https://drive.google.com/thumbnail?id=18D-8PomlJ_3nGAGrpTOyPliVIVArn4Si&sz=w500" alt="" /></a>
-							<h2>CS Cleaners</h2>
-							<p>CS Cleaners @ The Broadway, NYC // 9.20.2024</p>
-						</article>
-                                                <article class="thumb">
-							<a href="https://drive.google.com/thumbnail?id=1V8NqAI6XxyU-QmhNFle1NupU1n-v48Qa&sz=w4000" class="image"><img src="https://drive.google.com/thumbnail?id=1V8NqAI6XxyU-QmhNFle1NupU1n-v48Qa&sz=w500" alt="" /></a>
-							<h2>Adult Human Females</h2>
-							<p>Adult Human Females, Halloween Show @ Tompkins Square Park, NYC // 10.31.2024</p>
-						</article>
-                                                <article class="thumb">
-							<a href="https://drive.google.com/thumbnail?id=1fz_rdYPgLvhK--UDbtEUQYDH53oTPQ6c&sz=w4000" class="image"><img src="https://drive.google.com/thumbnail?id=1fz_rdYPgLvhK--UDbtEUQYDH53oTPQ6c&sz=w500" alt="" /></a>
-							<h2>Adult Human Females</h2>
-							<p>Adult Human Females, Halloween Show @ Tompkins Square Park, NYC // 10.31.2024</p>
-						</article>
-                                                <article class="thumb">
-							<a href="https://drive.google.com/thumbnail?id=1cYXmD-SCZxcbjpmw48C06sqpWGzIhTGE&sz=w4000" class="image"><img src="https://drive.google.com/thumbnail?id=1cYXmD-SCZxcbjpmw48C06sqpWGzIhTGE&sz=w500" alt="" /></a>
-							<h2>Adult Human Females</h2>
-							<p>Adult Human Females, Halloween Show @ Tompkins Square Park, NYC // 10.31.2024</p>
-						</article>
-                                                <article class="thumb">
-							<a href="https://drive.google.com/thumbnail?id=1uEjBaP5nPiheHsnNtmbLdNt6Edd1y_U0&sz=w4000" class="image"><img src="https://drive.google.com/thumbnail?id=1uEjBaP5nPiheHsnNtmbLdNt6Edd1y_U0&sz=w500" alt="" /></a>
-							<h2>Cave In</h2>
-							<p>Cave In @ The Meadows, NYC // 10.18.2024</p>
-						</article>
-                                                <article class="thumb">
-							<a href="https://drive.google.com/thumbnail?id=1rM8sl5sUYFVfrd2quIqtDJbiGu31Q0-q&sz=w4000" class="image"><img src="https://drive.google.com/thumbnail?id=1rM8sl5sUYFVfrd2quIqtDJbiGu31Q0-q&sz=w500" alt="" /></a>
-							<h2>Cave In</h2>
-							<p>Cave In @ The Meadows, NYC // 10.18.2024</p>
-						</article>
+    <!-- Testimonials -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">What People Are Saying</h2>
+            <div class="testimonials-grid">
+                <div class="testimonial-bubble fade-in">
+                    <p class="testimonial-text">Robby's coaching has helped me enter interviews with more confidence and a new perspective. Before every interview, I review our notes, and it helps me get my mind right for the tasks ahead. I absolutely would recommend Robby as a coach if you get the chance!</p>
+                    <div class="testimonial-author">-- Mone't F, Sr. Frontend Engineer</div>
+                </div>
+                <div class="testimonial-bubble fade-in">
+                    <p class="testimonial-text">Robby has been a huge help in tweaking and navigating my job search. They cheers me on and validates that my efforts will get me to the end goal.</p>
+                    <div class="testimonial-author">-- Karla O, Fullstack Software Engineer</div>
+                </div>
+                <div class="testimonial-bubble fade-in">
+                    <p class="testimonial-text">Robby’s coaching has been the game-changer I needed to elevate my career. From the very first session, I felt the immediate impact of his expertise. His guidance has been instrumental in boosting my confidence, helping me understand my worth, and shaping a career path tailored to my goals. His personable and thoughtful approach makes every session a great experience and I highly recommend him to anyone looking to take their career to the next level.</p>
+                    <div class="testimonial-author">-- Lynn M, Sr. Fullstack Software Engineer</div>
+                </div>
+                <div class="testimonial-bubble fade-in">
+                    <p class="testimonial-text">Robby helped me to be more confident in interviews and made the interview process way more enjoyable. Robby also helped me to know what to talk about and how to present myself to interviews even if I was nervous and got flustered. I highly recommend working with Robby especially if you feel like you're really close to getting the role and keep getting passed up.</p>
+                    <div class="testimonial-author">-- Jade T, Sr. Fullstack Software Engineer</div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-                                                <article class="thumb">
-							<a href="https://drive.google.com/thumbnail?id=1kALH7Qqr68DqkQosfH3MEORrCYEtrLbM&sz=w4000" class="image"><img src="https://drive.google.com/thumbnail?id=1kALH7Qqr68DqkQosfH3MEORrCYEtrLbM&sz=w500" alt="" /></a>
-							<h2>Cave In</h2>
-							<p>Cave In @ The Meadows, NYC // 10.18.2024</p>
-						</article>
+    <!-- Application Process -->
+    <section class="section section-alt" id="how-to-apply">
+        <div class="container">
+            <h2 class="section-title">How to Apply</h2>
+            <div class="application-steps">
+                <div class="application-step fade-in">
+                    <div class="step-number">1</div>
+                    <div class="step-title">Submit Application</div>
+                    <p class="step-description">Fill out a simple form with high level information about yourself</p>
+                </div>
+                <div class="application-step fade-in">
+                    <div class="step-number">2</div>
+                    <div class="step-title">Initial Screening</div>
+                    <p class="step-description">Robby will reach out to schedule an initial screeaning call with you to meet and make sure there is a good two way fit</p>
+                </div>
+                <div class="application-step fade-in">
+                    <div class="step-number">3</div>
+                    <div class="step-title">Cohort Placement</div>
+                    <p class="step-description">When accepted into the cohort, you'll immediately be able to schedule your first 1:1s with Robby and gain access to the community!</p>
+                </div>
+            </div>
+            <div style="text-align: center; margin-top: 40px;">
+                <button onclick="showApplicationForm()" class="large-cta">Apply for September Cohort</button>
+            </div>
+        </div>
+    </section>
 
-                                                <article class="thumb">
-							<a href="https://drive.google.com/thumbnail?id=1H8cFsjHo4fv3xJxjrCoQoDpOTN_hOE-z&sz=w4000" class="image"><img src="https://drive.google.com/thumbnail?id=1H8cFsjHo4fv3xJxjrCoQoDpOTN_hOE-z&sz=w500" alt="" /></a>
-							<h2>Oceans Of Slumber</h2>
-							<p>Oceans Of Slumber, Metal Injection Fest @ Brooklyn Monarch, NYC // 9.22.2024</p>
-						</article>
-                                                <article class="thumb">
-							<a href="https://drive.google.com/thumbnail?id=1J33vLfAeKra9wNV8i8r-cPoOB3apbsL6&sz=w4000" class="image"><img src="https://drive.google.com/thumbnail?id=1J33vLfAeKra9wNV8i8r-cPoOB3apbsL6&sz=w500" alt="" /></a>
-							<h2>Rivers Of Nihil</h2>
-							<p>Rivers Of Nihil, Metal Injection Fest @ Brooklyn Monarch, NYC // 9.22.2024</p>
-						</article>
-                                                <article class="thumb">
-							<a href="https://drive.google.com/thumbnail?id=1It1gvMqRjpkz0tA8GiD3PyNXHAB9k45y&sz=w4000" class="image"><img src="https://drive.google.com/thumbnail?id=1It1gvMqRjpkz0tA8GiD3PyNXHAB9k45y&sz=w500" alt="" /></a>
-							<h2>3 Inches Of Blood</h2>
-							<p>3 Inches Of Blood, Metal Injection Fest @ Brooklyn Monarch, NYC // 9.22.2024</p>
-						</article>
-                                                <article class="thumb">
-							<a href="https://drive.google.com/thumbnail?id=1wMWsVVKqLCQMFOCRwV5Lqd9I_H6J8omx&sz=w4000" class="image"><img src="https://drive.google.com/thumbnail?id=1wMWsVVKqLCQMFOCRwV5Lqd9I_H6J8omx&sz=w500" alt="" /></a>
-							<h2>Necrofier</h2>
-							<p>Necrofier, Metal Injection Fest @ Brooklyn Monarch, NYC // 9.22.2024</p>
-						</article>
-                                                <article class="thumb">
-							<a href="https://drive.google.com/thumbnail?id=1fhJeU3PEKQOrpP-y4DNwPEUs3ftBCJWe&sz=w4000" class="image"><img src="https://drive.google.com/thumbnail?id=1fhJeU3PEKQOrpP-y4DNwPEUs3ftBCJWe&sz=w500" alt="" /></a>
-							<h2>Goatwhore</h2>
-							<p>Goatwhore, Metal Injection Fest @ Brooklyn Monarch, NYC // 9.22.2024</p>
-						</article>
+    <!-- FAQ -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Frequently Asked Questions</h2>
+            <div class="faq-list">
+                <div class="faq-item fade-in">
+                    <div class="faq-question">Do I have to pay up-front?</div>
+                    <div class="faq-answer">I ask for 25% to hold your place in the cohort. The remainder is due before the start of Day 1 of the cohort.</div>
+                </div>
+                <div class="faq-item fade-in">
+                    <div class="faq-question">How do you decide to admit someone to the cohort?</div>
+                    <div class="faq-answer">The cohort will heavily be based on my coaching style, which is fairly accesible to engineers of all backgrounds. The intro call will be important to make sure that the group setting and my style will work for you- my goal is to set you and the cohort up for success.</div>
+                </div>
+                <div class="faq-item fade-in">
+                    <div class="faq-question">How much time commitment is required each week?</div>
+                    <div class="faq-answer">You will be required to participate in 2 hour of group sessions per week, and at least 1 hour of 1:1 time with Robby. Expect there to be homework, but the amount is on a per-case basis. Remember that this is a part of your winning strategy- the rest will be on you, but the more you bring to the cohort the more you will get out of it!</div>
+                </div>
+                <div class="faq-item fade-in">
+                    <div class="faq-question">What if I can't attend a session?</div>
+                    <div class="faq-answer">Life happens, so if there is an emergency or an illness and you cannot make it, that's ok. Group sessions cannot be made up- though you may have access to summaries and/or recordings. Up to 1 hour of 1:1 coaching may be "rolled over" to the next week with Robby- but this should only be on an emergent basis.</div>
+                </div>
+                <div class="faq-item fade-in">
+                    <div class="faq-question">What happens if I don't find a job during the program?</div>
+                    <div class="faq-answer">It's not guaranteed that you will find a job during this program. Over 50% of my coaching clients find employment during the first 30 days of us working together, but everyone's journey is unique. I can guarantee that you will gain indispensible skills and insights that will bootstrap your job search and be indispensible in all stages of your career. Cohort members will receive first dibs on joining further cohorts, and may be eligible for a discount as well.</div>
+                </div>
+                <div class="faq-item fade-in">
+                    <div class="faq-question">What level of engineers do you work with?</div>
+                    <div class="faq-answer">I work with software engineers of all level, as long as they have some form of industry experience. Whether you hold a 4 year CS degree, bootcamp education, or are self taught, all are welcome. SWEs of all backgrounds, industries, and technical stacks will find value in this program.</div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-                                                <article class="thumb">
-							<a href="https://drive.google.com/thumbnail?id=1oSV9Z0fEWokVWwsIh6HXtgr-eitOAH8z&sz=w4000" class="image"><img src="https://drive.google.com/thumbnail?id=1oSV9Z0fEWokVWwsIh6HXtgr-eitOAH8z&sz=w500" alt="" /></a>
-							<h2>Goatwhore</h2>
-							<p>Goatwhore, Metal Injection Fest @ Brooklyn Monarch, NYC // 9.22.2024</p>
-						</article>
+    <!-- Pricing -->
+    <section class="section" id="apply">
+        <div class="container">
+            <h2 class="section-title">Apply Today</h2>
+            <div class="pricing-card fade-in">
+                <h3 style="font-size: 24px; font-weight: 600; color: #1a202c; margin-bottom: 16px;">September 2025 Cohort</h3>
+                <p style="color: #4a5568; margin-bottom: 24px; font-size: 16px;">Join a small group of 10 engineers for intensive career coaching</p>
+                <div class="price" style="font-size: 56px; font-weight: 800; color: #1a202c; margin-bottom: 10px;">$2,000</div>
+                <div class="price-period" style="color: #4a5568; font-size: 18px; margin-bottom: 30px;">for the month of September</div>
+                <button onclick="showApplicationForm()" class="large-cta">Apply for September Cohort</button>
+            </div>
+        </div>
+    </section>
 
-                                                <article class="thumb">
-							<a href="https://drive.google.com/thumbnail?id=1ZNCoQAN2tQKwcvauQchh-I7dpJd6THG-&sz=w4000" class="image"><img src="https://drive.google.com/thumbnail?id=1ZNCoQAN2tQKwcvauQchh-I7dpJd6THG-&sz=w500" alt="" /></a>
-							<h2>Cave In (Acoustic)</h2>
-							<p>Cave In (Acoustic), Metal Injection Fest @ The Woodshop, NYC // 9.22.2024</p>
-						</article>
-                                                <article class="thumb">
-							<a href="https://drive.google.com/thumbnail?id=13jNcr-L2HgyOZviKu-bdCQxB8fTqR2R1&sz=w4000" class="image"><img src="https://drive.google.com/thumbnail?id=13jNcr-L2HgyOZviKu-bdCQxB8fTqR2R1&sz=w500" alt="" /></a>
-							<h2>Cave In (Acoustic)</h2>
-							<p>Cave In (Acoustic), Metal Injection Fest @ The Woodshop, NYC // 9.22.2024</p>
-						</article>
-                                                <article class="thumb">
-							<a href="https://drive.google.com/thumbnail?id=1VL18N-INRi-w3gJCPAMjQguD8YfJgJzt&sz=w4000" class="image"><img src="https://drive.google.com/thumbnail?id=1VL18N-INRi-w3gJCPAMjQguD8YfJgJzt&sz=w500" alt="" /></a>
-							<h2>Heretic Body Hammer</h2>
-							<p>Heretic Body Hammer @ TV Eye, NYC // 2.1.2025</p>
-						</article>
-                                                <article class="thumb">
-							<a href="https://drive.google.com/thumbnail?id=1UcDLjWntrO5uWMfYnb_ndSGMlVvPTz-2&sz=w4000" class="image"><img src="https://drive.google.com/thumbnail?id=1UcDLjWntrO5uWMfYnb_ndSGMlVvPTz-2&sz=w500" alt="" /></a>
-							<h2>Heretic Body Hammer</h2>
-							<p>Heretic Body Hammer @ TV Eye, NYC // 2.1.2025</p>
-						</article>
+    <!-- Application Form Modal (moved outside pricing section) -->
+    <div id="application-form" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 1000; padding: 20px; overflow-y: auto;">
+        <div style="max-width: 600px; margin: 40px auto; padding: 40px; background: white; border-radius: 16px; box-shadow: 0 4px 12px rgba(0,0,0,0.3); position: relative;">
+            <button onclick="closeForm()" style="position: absolute; top: 15px; right: 20px; background: none; border: none; font-size: 24px; cursor: pointer; color: #4a5568; width: 30px; height: 30px; display: flex; align-items: center; justify-content: center;">&times;</button>
+            
+            <h3 style="margin-bottom: 24px; color: #1a202c; font-size: 28px; font-weight: 600;">Apply for September Cohort</h3>
+            
+            <form action="https://formspree.io/f/xldwrjng" method="POST">
+                <div style="margin-bottom: 20px;">
+                    <label style="display: block; margin-bottom: 8px; font-weight: 600; color: #2d3748;">Full Name *</label>
+                    <input type="text" name="name" required style="width: 100%; padding: 12px; border: 2px solid #e2e8f0; border-radius: 8px; font-size: 16px; box-sizing: border-box;">
+                </div>
+                
+                <div style="margin-bottom: 20px;">
+                    <label style="display: block; margin-bottom: 8px; font-weight: 600; color: #2d3748;">Email *</label>
+                    <input type="email" name="email" required style="width: 100%; padding: 12px; border: 2px solid #e2e8f0; border-radius: 8px; font-size: 16px; box-sizing: border-box;">
+                </div>
+                
+                <div style="margin-bottom: 20px;">
+                    <label style="display: block; margin-bottom: 8px; font-weight: 600; color: #2d3748;">LinkedIn *</label>
+                    <input type="text" name="linkedin" required style="width: 100%; padding: 12px; border: 2px solid #e2e8f0; border-radius: 8px; font-size: 16px; box-sizing: border-box;">
+                </div>
+                
+                <div style="margin-bottom: 20px;">
+                    <label style="display: block; margin-bottom: 8px; font-weight: 600; color: #2d3748;">Current Role (If Applicabl)</label>
+                    <input type="text" name="current_role" style="width: 100%; padding: 12px; border: 2px solid #e2e8f0; border-radius: 8px; font-size: 16px; box-sizing: border-box;">
+                </div>
+                
+                <div style="margin-bottom: 20px;">
+                    <label style="display: block; margin-bottom: 8px; font-weight: 600; color: #2d3748;">Years of Experience *</label>
+                    <select name="experience" required style="width: 100%; padding: 12px; border: 2px solid #e2e8f0; border-radius: 8px; font-size: 16px; box-sizing: border-box;">
+                        <option value="">Select...</option>
+                        <option value="1-2 years">1-2 years</option>
+                        <option value="3-5 years">3-5 years</option>
+                        <option value="5-8 years">5-8 years</option>
+                        <option value="8+ years">8+ years</option>
+                    </select>
+                </div>
+                
+                <div style="margin-bottom: 20px;">
+                    <label style="display: block; margin-bottom: 8px; font-weight: 600; color: #2d3748;">Job Search Goals *</label>
+                    <textarea name="goals" required rows="4" style="width: 100%; padding: 12px; border: 2px solid #e2e8f0; border-radius: 8px; font-size: 16px; resize: vertical; box-sizing: border-box;" placeholder="What are you hoping to achieve? What type of roles are you targeting?"></textarea>
+                </div>
+                
+                <div style="margin-bottom: 20px;">
+                    <label style="display: block; margin-bottom: 8px; font-weight: 600; color: #2d3748;">How did you hear about this program?</label>
+                    <input type="text" name="referral_source" style="width: 100%; padding: 12px; border: 2px solid #e2e8f0; border-radius: 8px; font-size: 16px; box-sizing: border-box;">
+                </div>
+                
+                <button type="submit" style="background: #e29578; color: white; padding: 16px 32px; border: none; border-radius: 12px; font-size: 16px; font-weight: 600; cursor: pointer; width: 100%; transition: all 0.2s ease; margin-bottom: 12px;">
+                    Submit Application
+                </button>
+                
+                <button type="button" onclick="closeForm()" style="background: #f7fafc; color: #4a5568; padding: 12px 24px; border: 1px solid #e2e8f0; border-radius: 8px; font-size: 14px; cursor: pointer; width: 100%;">
+                    Cancel
+                </button>
+            </form>
+        </div>
+    </div>
 
+    <script>
+    function showApplicationForm() {
+        document.getElementById('application-form').style.display = 'block';
+        document.body.style.overflow = 'hidden'; // Prevent background scrolling
+    }
 
-                                            </div>
+    function closeForm() {
+        document.getElementById('application-form').style.display = 'none';
+        document.body.style.overflow = 'auto'; // Re-enable scrolling
+    }
 
-				<!-- Footer -->
-					<footer id="footer" class="panel">
-						<div class="inner split">
-							<div>
-								<section>
-									<h2>Active Listening Photography</h2>
-									<p>I'm Robby, aka @actlis_lens, and I love going to concerts. I especially love being up close in the action, but due to the inevitable march forward of time, I've traded in my mosh card for a photography pass. Living in NYC I have access to an amazing wealth of music and culture and I love capturing it through photography. I called my account Active Listening because I believe photography should convey the experience of being at the show, hearing what you see. If you're interested in having me shoot your show, reach out- I love trading edited photos for a photo pass, I don't charge for this as I only shoot shows I'd attend anyway. Also available for promo shoots, headshots, hanging out with your pets and taking cute photos of them, or whatever!</p>
-								</section>
-								<section>
-									<h2>Follow me on ...</h2>
-									<ul class="icons">
-										<li><a href="cocainemitch.bandcamp.com" class="icon brands fa-bandcamp"><span class="label">Bandcamp</span></a></li>
-										<li><a href="https://bsky.app/profile/moshmallow.bsky.social" class="icon brands fa-twitter"><span class="label">Bluesky</span></a></li>
-										<li><a href="https://instagram.com/actlis_lens" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
-										<li><a href="https://linkedin.com/in/robbygrodin" class="icon brands fa-linkedin-in"><span class="label">LinkedIn</span></a></li>
-									</ul>
-								</section>
-							</div>
-							<div>
-								<section>
-									<h2>Get in touch</h2>
-                                                                        <a href="mailto:grodin.robby@gmail.com"><p>Shoot me an email!</p></a>
-								</section>
-							</div>
-						</div>
-					</footer>
+    // Close form when clicking outside of it
+    document.getElementById('application-form').addEventListener('click', function(e) {
+        if (e.target === this) {
+            closeForm();
+        }
+    });
+    </script>
 
-			</div>
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <p>&copy; 2025 Robby Grodin Career Coaching. Ready to level up your tech career?</p>
+            </div>
+        </div>
+    </footer>
 
-		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/jquery.poptrox.min.js"></script>
-			<script src="assets/js/browser.min.js"></script>
-			<script src="assets/js/breakpoints.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script>
+    <script>
+        // Add smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
 
-	</body>
+        // Intersection Observer for fade-in animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all fade-in elements
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+    </script>
+</body>
 </html>
