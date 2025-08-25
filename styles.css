@@ -394,9 +394,22 @@ nav {
 /* Testimonials */
 .testimonials-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(2, 1fr); /* Always 2 columns */
     gap: 32px;
     margin-top: 48px;
+}
+
+/* Add responsive behavior for mobile */
+@media (max-width: 768px) {
+    .testimonials-grid {
+        grid-template-columns: 1fr; /* Single column on mobile */
+    }
+}
+
+.testimonial-full-width {
+    grid-column: 1 / -1; /* Span all columns */
+    max-width: 800px; /* Optional: limit max width for better readability */
+    margin: 0 auto; /* Center the testimonial */
 }
 
 .testimonial-bubble {
@@ -660,7 +673,8 @@ footer {
     }
     
     .features-grid,
-    .target-grid {
+    .target-grid,
+    .testimonials-grid {
         grid-template-columns: 1fr;
         gap: 24px;
     }
