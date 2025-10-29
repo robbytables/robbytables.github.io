@@ -180,7 +180,9 @@ nav {
     }
 
     .program-header {
-        left: 50%;
+        left: auto;
+        right: 12px;
+        transform: none;
         font-size: 14px;
     }
 }
