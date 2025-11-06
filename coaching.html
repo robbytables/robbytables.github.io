@@ -259,8 +259,69 @@
         </div>
     </section>
 
-    <!-- FAQ -->
+    <!-- Client Success - Logo Cloud -->
     <section class="section">
+        <div class="container">
+            <h2 class="section-title">Clients Have Joined Companies Like...</h2>
+            <div style="max-width: 1000px; margin: 0 auto;">
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 40px 60px; align-items: center; justify-items: center; padding: 20px 0;">
+                    <!-- Row 1 - Larger/More prominent logos -->
+                    <div class="logo-item" style="filter: grayscale(100%); opacity: 0.7; transition: all 0.3s ease;">
+                        <img src="images/icons/amazon.png" alt="Amazon" style="height: 50px; width: auto; max-width: 100%; object-fit: contain;">
+                    </div>
+                    <div class="logo-item" style="filter: grayscale(100%); opacity: 0.7; transition: all 0.3s ease;">
+                        <img src="images/icons/msft.png" alt="Microsoft" style="height: 50px; width: auto; max-width: 100%; object-fit: contain;">
+                    </div>
+                    <div class="logo-item" style="filter: grayscale(100%); opacity: 0.7; transition: all 0.3s ease;">
+                        <img src="images/icons/netflix.png" alt="Netflix" style="height: 45px; width: auto; max-width: 100%; object-fit: contain;">
+                    </div>
+                    <div class="logo-item" style="filter: grayscale(100%); opacity: 0.7; transition: all 0.3s ease;">
+                        <img src="images/icons/stripe.png" alt="Stripe" style="height: 45px; width: auto; max-width: 100%; object-fit: contain;">
+                    </div>
+                    <div class="logo-item" style="filter: grayscale(100%); opacity: 0.7; transition: all 0.3s ease;">
+                        <img src="images/icons/new-Nike-logo-black-png-large-size.png" alt="Nike" style="height: 45px; width: auto; max-width: 100%; object-fit: contain;">
+                    </div>
+
+                    <!-- Row 2 - Medium logos -->
+                    <div class="logo-item" style="filter: grayscale(100%); opacity: 0.7; transition: all 0.3s ease;">
+                        <img src="images/icons/linkedin_logo.jpeg" alt="LinkedIn" style="height: 40px; width: auto; max-width: 100%; object-fit: contain;">
+                    </div>
+                    <div class="logo-item" style="filter: grayscale(100%); opacity: 0.7; transition: all 0.3s ease;">
+                        <img src="images/icons/DoorDash_Logo.svg.png" alt="DoorDash" style="height: 40px; width: auto; max-width: 100%; object-fit: contain;">
+                    </div>
+                    <div class="logo-item" style="filter: grayscale(100%); opacity: 0.7; transition: all 0.3s ease;">
+                        <img src="images/icons/apollo.png" alt="Apollo" style="height: 38px; width: auto; max-width: 100%; object-fit: contain;">
+                    </div>
+                    <div class="logo-item" style="filter: grayscale(100%); opacity: 0.7; transition: all 0.3s ease;">
+                        <img src="images/icons/brisk-main.webp" alt="Brisk" style="height: 45px; width: auto; max-width: 100%; object-fit: contain;">
+                    </div>
+
+                    <!-- Row 3 - Smaller/Additional logos -->
+                    <div class="logo-item" style="filter: grayscale(100%); opacity: 0.7; transition: all 0.3s ease;">
+                        <img src="images/icons/Headway_Logo_RGB_4.webp" alt="Headway" style="height: 35px; width: auto; max-width: 100%; object-fit: contain;">
+                    </div>
+                    <div class="logo-item" style="filter: grayscale(100%); opacity: 0.7; transition: all 0.3s ease;">
+                        <img src="images/icons/mae.png" alt="Mae" style="height: 35px; width: auto; max-width: 100%; object-fit: contain;">
+                    </div>
+                    <div class="logo-item" style="filter: grayscale(100%); opacity: 0.7; transition: all 0.3s ease;">
+                        <img src="images/icons/LTK_Logo.3a5a3d99.png" alt="LTK" style="height: 35px; width: auto; max-width: 100%; object-fit: contain;">
+                    </div>
+                    <div class="logo-item" style="filter: grayscale(100%); opacity: 0.7; transition: all 0.3s ease;">
+                        <img src="images/icons/healthsherpa.png" alt="HealthSherpa" style="height: 35px; width: auto; max-width: 100%; object-fit: contain;">
+                    </div>
+                    <div class="logo-item" style="filter: grayscale(100%); opacity: 0.7; transition: all 0.3s ease;">
+                        <img src="images/icons/articulate.jpeg" alt="Articulate" style="height: 35px; width: auto; max-width: 100%; object-fit: contain;">
+                    </div>
+                    <div class="logo-item" style="filter: grayscale(100%); opacity: 0.7; transition: all 0.3s ease;">
+                        <img src="images/icons/aclu.png" alt="ACLU" style="height: 35px; width: auto; max-width: 100%; object-fit: contain;">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="section section-alt">
         <div class="container">
             <h2 class="section-title">Frequently Asked Questions</h2>
             <div class="faq-list">
@@ -444,6 +505,20 @@
         // Observe all fade-in elements
         document.querySelectorAll('.fade-in').forEach(el => {
             observer.observe(el);
+        });
+
+        // Logo cloud hover effects
+        document.querySelectorAll('.logo-item').forEach(logo => {
+            logo.addEventListener('mouseenter', function() {
+                this.style.filter = 'grayscale(0%)';
+                this.style.opacity = '1';
+                this.style.transform = 'scale(1.05)';
+            });
+            logo.addEventListener('mouseleave', function() {
+                this.style.filter = 'grayscale(100%)';
+                this.style.opacity = '0.7';
+                this.style.transform = 'scale(1)';
+            });
         });
     </script>
 </body>
