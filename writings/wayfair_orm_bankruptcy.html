@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wayfair Blog Post: ORM Bankruptcy - Robby Grodin</title>
+
+    <!-- Primary Meta Tags -->
+    <meta name="description" content="Why We Ditched Our ORM at Wayfair">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://robbytables.github.io/writings/wayfair_orm_bankruptcy.html">
+    <meta property="og:title" content="Wayfair Blog Post: ORM Bankruptcy">
+    <meta property="og:description" content="Why We Ditched Our ORM at Wayfair">
+    <meta property="og:image" content="https://robbytables.github.io/images/main/PXL_20240908_174742780.PORTRAIT.jpg">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://robbytables.github.io/writings/wayfair_orm_bankruptcy.html">
+    <meta property="twitter:title" content="Wayfair Blog Post: ORM Bankruptcy">
+    <meta property="twitter:description" content="Why We Ditched Our ORM at Wayfair">
+    <meta property="twitter:image" content="https://robbytables.github.io/images/main/PXL_20240908_174742780.PORTRAIT.jpg">
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Cormorant Garamond', serif;
+            background-color: #ffffff;
+            color: #333333;
+            padding: 60px 80px;
+            min-height: 100vh;
+            line-height: 1.8;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-bottom: 30px;
+            font-size: 20px;
+            color: #E8927C;
+            transition: opacity 0.2s ease;
+        }
+
+        .back-link:hover {
+            opacity: 0.7;
+        }
+
+        h1 {
+            font-size: 42px;
+            font-weight: 500;
+            margin-bottom: 10px;
+            letter-spacing: 0.5px;
+            color: #E8927C;
+            line-height: 1.3;
+        }
+
+        .byline {
+            font-size: 20px;
+            color: #666;
+            margin-bottom: 10px;
+        }
+
+        .meta {
+            font-size: 18px;
+            color: #999;
+            margin-bottom: 40px;
+        }
+
+        h2 {
+            font-size: 32px;
+            font-weight: 500;
+            margin-top: 50px;
+            margin-bottom: 25px;
+            letter-spacing: 0.5px;
+            color: #E8927C;
+        }
+
+        h3 {
+            font-size: 26px;
+            font-weight: 500;
+            margin-top: 35px;
+            margin-bottom: 20px;
+            font-style: italic;
+            color: #555;
+        }
+
+        p {
+            font-size: 20px;
+            margin-bottom: 20px;
+            text-align: justify;
+        }
+
+        .featured-image {
+            width: 100%;
+            max-width: 800px;
+            height: auto;
+            margin: 30px 0;
+            border-radius: 4px;
+        }
+
+        .intro-note {
+            font-style: italic;
+            background-color: #f9f9f9;
+            padding: 20px;
+            border-left: 4px solid #E8927C;
+            margin: 30px 0;
+        }
+
+        .tag {
+            display: inline-block;
+            background-color: #f0f0f0;
+            color: #666;
+            padding: 5px 12px;
+            border-radius: 3px;
+            font-size: 16px;
+            margin: 20px 0;
+        }
+
+        a {
+            color: #E8927C;
+            text-decoration: none;
+            transition: opacity 0.2s ease;
+        }
+
+        a:hover {
+            opacity: 0.7;
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 40px 30px;
+            }
+
+            h1 {
+                font-size: 32px;
+            }
+
+            h2 {
+                font-size: 26px;
+            }
+
+            h3 {
+                font-size: 22px;
+            }
+
+            p {
+                font-size: 18px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="../writings.html" class="back-link">← Back to Writings</a>
+
+        <h1>Wayfair Blog Post: ORM Bankruptcy</h1>
+        <div class="byline">Robby Grodin</div>
+        <div class="meta">3 min read · Apr 18, 2017</div>
+
+        <div class="intro-note">
+            <p>This post was originally a release note I sent while working at Wayfair, and is now a blog post on their Engineering blog. I'd be remiss to republish without noting that while this perspective piece sounds fairly dogmatic, it shouldn't be taken as such. ORMs are useful tools in any engineer's toolkit, as is the ability to write clean and optimized SQL queries. What works for Wayfair won't necessarily work for everyone.</p>
+        </div>
+
+        <h2>ORM Bankruptcy: Why We Ditched Our ORM</h2>
+        <span class="tag">anti-orm</span>
+
+        <p>This post describes a recent architectural change made on my team at Wayfair. The Intelligent Systems Team, as we are called, is responsible for creating a fully personalized experience for millions of customers every day. One of the core products we own is the Recommendations Service. At its core, the service is a simple Python/Flask app that provides recommendations used on the site, in emails, to power our proprietary display retargeting platform, and throughout various other applications.</p>
+
+        <p>An Object Relational Mapping (ORM) is a technology that translates relationship database schemas to an object-oriented model. The Recommendations Service utilized one to retrieve information from MSSQL server before storing that data in Redis. This blog post explains why we've discarded this approach in favor of directly dispatching SQL queries using SQLAlchemy Core.</p>
+
+        <p>The last few months have seen the Recommendations Service increase in both functional and architectural complexity. The core of this service is the ability to ingest a 32 character alphanumeric GUID per request which corresponds to a predetermined configuration. Having to adhere to a strict SLA, we try to hit the DB at most once per request, and only if the cache is empty.</p>
+
+        <p>With the most recent feature update, Configuration Sequences, our configuration query needed to model a One-To-Many-To-Many relationship. Executing this DB interaction through the existing SQLAlchemy ORM became too unwieldy, for multiple reasons. Others have written fairly extensively about their distaste for ORMs. Here are the main reasons why we've deprecated our ORM code.</p>
+
+        <p><strong>Code Maintainability</strong> - ORM code can appear elegant when working with simple models. When that model contains multiple join tables and picklists, things get fairly complex. We ended up with over 100 lines of code that were tightly coupled to the database design, single line functions with half a dozen operators, and lack of clarity about how often the DB is queried. Not only did someone need to learn a new technology to be effective, but their success was often hindered by a lack of documentation. Directly dispatching SQL queries in Flask is fairly straightforward.</p>
+
+        <p><strong>Do less work</strong> - It's much more efficient for an engineer to build a SQL query once than to have the ORM do that work for us every time a request is made. Additionally, the more complex the query, the more difficult it is to translate into ORM code. By altering this approach, we are enabling the service to scale more smoothly.</p>
+
+        <p><strong>Don't hide the good stuff</strong> - Data Literacy is one of our main tenets at Wayfair. If you're an engineer, you should be able to "speak SQL". The idea behind an ORM is to hide the SQL code, but it doesn't- it just makes it more unintelligible. The most important parts of the query are abstracted away and hidden behind a foreign syntax. This is very bad- especially when you realize that your vital WITH (NOLOCK) hint doesn't actually work. It's very difficult to optimize a SQL query you can't see, so why not just put it directly in your code?</p>
+
+        <p>In general, the service is now more pleasant to work with and gives our engineers an increased sense of confidence when pushing code. This is due not only to the legibility of the code but also the increased testability. Just another way we're trying to shake the anti-patterns from our codebase.</p>
+
+    </div>
+</body>
+</html>
