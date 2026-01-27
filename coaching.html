@@ -540,7 +540,7 @@
         });
 
         // Contact form submission
-        const CONTACT_API_URL = 'https://nextpath-production.up.railway.app/api/contact/';
+        const CONTACT_API_URL = 'https://www.gonextpath.com/api/contact/';
 
         document.getElementById('coaching-inquiry-form').addEventListener('submit', async function(e) {
             e.preventDefault();
@@ -589,7 +589,7 @@
                 formMessage.style.display = 'block';
                 formMessage.style.background = '#f8d7da';
                 formMessage.style.color = '#721c24';
-                formMessage.textContent = error.message || 'Failed to send. Please try again or email directly.';
+                formMessage.textContent = 'Error submitting form. Please email robby@gonextpath.com instead.';
             } finally {
                 submitBtn.disabled = false;
                 submitBtn.textContent = 'Submit Inquiry';

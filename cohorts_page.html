@@ -401,27 +401,27 @@
             
             <h3 style="margin-bottom: 24px; color: #1a202c; font-size: 28px; font-weight: 600;">Apply for February Cohort</h3>
             
-            <form action="https://formspree.io/f/xldwrjng" method="POST">
+            <form id="cohort-application-form">
                 <div style="margin-bottom: 20px;">
                     <label style="display: block; margin-bottom: 8px; font-weight: 600; color: #2d3748;">Full Name *</label>
                     <input type="text" name="name" required style="width: 100%; padding: 12px; border: 2px solid #e2e8f0; border-radius: 8px; font-size: 16px; box-sizing: border-box;">
                 </div>
-                
+
                 <div style="margin-bottom: 20px;">
                     <label style="display: block; margin-bottom: 8px; font-weight: 600; color: #2d3748;">Email *</label>
                     <input type="email" name="email" required style="width: 100%; padding: 12px; border: 2px solid #e2e8f0; border-radius: 8px; font-size: 16px; box-sizing: border-box;">
                 </div>
-                
+
                 <div style="margin-bottom: 20px;">
                     <label style="display: block; margin-bottom: 8px; font-weight: 600; color: #2d3748;">LinkedIn *</label>
                     <input type="text" name="linkedin" required style="width: 100%; padding: 12px; border: 2px solid #e2e8f0; border-radius: 8px; font-size: 16px; box-sizing: border-box;">
                 </div>
-                
+
                 <div style="margin-bottom: 20px;">
                     <label style="display: block; margin-bottom: 8px; font-weight: 600; color: #2d3748;">Current Role (If Applicable)</label>
                     <input type="text" name="current_role" style="width: 100%; padding: 12px; border: 2px solid #e2e8f0; border-radius: 8px; font-size: 16px; box-sizing: border-box;">
                 </div>
-                
+
                 <div style="margin-bottom: 20px;">
                     <label style="display: block; margin-bottom: 8px; font-weight: 600; color: #2d3748;">Years of Experience *</label>
                     <select name="experience" required style="width: 100%; padding: 12px; border: 2px solid #e2e8f0; border-radius: 8px; font-size: 16px; box-sizing: border-box;">
@@ -432,21 +432,26 @@
                         <option value="8+ years">8+ years</option>
                     </select>
                 </div>
-                
+
                 <div style="margin-bottom: 20px;">
                     <label style="display: block; margin-bottom: 8px; font-weight: 600; color: #2d3748;">Job Search Goals *</label>
                     <textarea name="goals" required rows="4" style="width: 100%; padding: 12px; border: 2px solid #e2e8f0; border-radius: 8px; font-size: 16px; resize: vertical; box-sizing: border-box;" placeholder="What are you hoping to achieve? What type of roles are you targeting?"></textarea>
                 </div>
-                
+
                 <div style="margin-bottom: 20px;">
                     <label style="display: block; margin-bottom: 8px; font-weight: 600; color: #2d3748;">How did you hear about this program?</label>
                     <input type="text" name="referral_source" style="width: 100%; padding: 12px; border: 2px solid #e2e8f0; border-radius: 8px; font-size: 16px; box-sizing: border-box;">
                 </div>
-                
-                <button type="submit" style="background: #e29578; color: white; padding: 16px 32px; border: none; border-radius: 12px; font-size: 16px; font-weight: 600; cursor: pointer; width: 100%; transition: all 0.2s ease; margin-bottom: 12px;">
+
+                <!-- Honeypot field - hidden from users, catches bots -->
+                <input type="text" name="website" style="display: none;" tabindex="-1" autocomplete="off">
+
+                <div id="cohort-form-message" style="display: none; padding: 12px; border-radius: 8px; margin-bottom: 16px; text-align: center;"></div>
+
+                <button type="submit" id="cohort-submit-btn" style="background: #e29578; color: white; padding: 16px 32px; border: none; border-radius: 12px; font-size: 16px; font-weight: 600; cursor: pointer; width: 100%; transition: all 0.2s ease; margin-bottom: 12px;">
                     Submit Application
                 </button>
-                
+
                 <button type="button" onclick="closeForm()" style="background: #f7fafc; color: #4a5568; padding: 12px 24px; border: 1px solid #e2e8f0; border-radius: 8px; font-size: 14px; cursor: pointer; width: 100%;">
                     Cancel
                 </button>
@@ -549,6 +554,65 @@
                 this.style.opacity = '0.7';
                 this.style.transform = 'scale(1)';
             });
+        });
+
+        // Contact form submission
+        const CONTACT_API_URL = 'https://www.gonextpath.com/api/contact/';
+
+        document.getElementById('cohort-application-form').addEventListener('submit', async function(e) {
+            e.preventDefault();
+
+            const form = e.target;
+            const submitBtn = document.getElementById('cohort-submit-btn');
+            const formMessage = document.getElementById('cohort-form-message');
+
+            // Disable submit button and show loading state
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Sending...';
+            formMessage.style.display = 'none';
+
+            // Gather form data
+            const formData = {
+                name: form.name.value,
+                email: form.email.value,
+                linkedin: form.linkedin.value,
+                current_role: form.current_role.value,
+                experience: form.experience.value,
+                goals: form.goals.value,
+                referral_source: form.referral_source.value,
+                website: form.website.value,  // honeypot
+                program: 'Career Cohorts - February 2026'
+            };
+
+            try {
+                const response = await fetch(CONTACT_API_URL, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(formData)
+                });
+
+                const data = await response.json();
+
+                if (response.ok && data.success) {
+                    formMessage.style.display = 'block';
+                    formMessage.style.background = '#d4edda';
+                    formMessage.style.color = '#155724';
+                    formMessage.textContent = 'Thank you! Your application has been sent. I\'ll be in touch within 24 hours.';
+                    form.reset();
+                } else {
+                    throw new Error(data.error || 'Something went wrong');
+                }
+            } catch (error) {
+                formMessage.style.display = 'block';
+                formMessage.style.background = '#f8d7da';
+                formMessage.style.color = '#721c24';
+                formMessage.textContent = 'Error submitting form. Please email robby@gonextpath.com instead.';
+            } finally {
+                submitBtn.disabled = false;
+                submitBtn.textContent = 'Submit Application';
+            }
         });
     </script>
 </body>
