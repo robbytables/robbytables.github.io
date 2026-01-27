@@ -389,7 +389,7 @@
 
             <h3 style="margin-bottom: 24px; color: #1a202c; font-size: 28px; font-weight: 600;">Get Started with Coaching</h3>
 
-            <form action="https://formspree.io/f/xldwrjng" method="POST">
+            <form id="coaching-inquiry-form">
                 <div style="margin-bottom: 20px;">
                     <label style="display: block; margin-bottom: 8px; font-weight: 600; color: #2d3748;">Full Name *</label>
                     <input type="text" name="name" required style="width: 100%; padding: 12px; border: 2px solid #e2e8f0; border-radius: 8px; font-size: 16px; box-sizing: border-box;">
@@ -425,9 +425,12 @@
                     <input type="text" name="referral_source" style="width: 100%; padding: 12px; border: 2px solid #e2e8f0; border-radius: 8px; font-size: 16px; box-sizing: border-box;">
                 </div>
 
-                <input type="hidden" name="_subject" value="New 1:1 Coaching Inquiry">
+                <!-- Honeypot field - hidden from users, catches bots -->
+                <input type="text" name="website" style="display: none;" tabindex="-1" autocomplete="off">
 
-                <button type="submit" style="background: #e29578; color: white; padding: 16px 32px; border: none; border-radius: 12px; font-size: 16px; font-weight: 600; cursor: pointer; width: 100%; transition: all 0.2s ease; margin-bottom: 12px;">
+                <div id="form-message" style="display: none; padding: 12px; border-radius: 8px; margin-bottom: 16px; text-align: center;"></div>
+
+                <button type="submit" id="submit-btn" style="background: #e29578; color: white; padding: 16px 32px; border: none; border-radius: 12px; font-size: 16px; font-weight: 600; cursor: pointer; width: 100%; transition: all 0.2s ease; margin-bottom: 12px;">
                     Submit Inquiry
                 </button>
 
@@ -534,6 +537,63 @@
                 this.style.opacity = '0.7';
                 this.style.transform = 'scale(1)';
             });
+        });
+
+        // Contact form submission
+        const CONTACT_API_URL = 'https://nextpath-production.up.railway.app/api/contact/';
+
+        document.getElementById('coaching-inquiry-form').addEventListener('submit', async function(e) {
+            e.preventDefault();
+
+            const form = e.target;
+            const submitBtn = document.getElementById('submit-btn');
+            const formMessage = document.getElementById('form-message');
+
+            // Disable submit button and show loading state
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Sending...';
+            formMessage.style.display = 'none';
+
+            // Gather form data
+            const formData = {
+                name: form.name.value,
+                email: form.email.value,
+                linkedin: form.linkedin.value,
+                package_interest: form.package_interest.value,
+                coaching_needs: form.coaching_needs.value,
+                referral_source: form.referral_source.value,
+                website: form.website.value  // honeypot
+            };
+
+            try {
+                const response = await fetch(CONTACT_API_URL, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(formData)
+                });
+
+                const data = await response.json();
+
+                if (response.ok && data.success) {
+                    formMessage.style.display = 'block';
+                    formMessage.style.background = '#d4edda';
+                    formMessage.style.color = '#155724';
+                    formMessage.textContent = 'Thank you! Your inquiry has been sent. I\'ll be in touch within 24 hours.';
+                    form.reset();
+                } else {
+                    throw new Error(data.error || 'Something went wrong');
+                }
+            } catch (error) {
+                formMessage.style.display = 'block';
+                formMessage.style.background = '#f8d7da';
+                formMessage.style.color = '#721c24';
+                formMessage.textContent = error.message || 'Failed to send. Please try again or email directly.';
+            } finally {
+                submitBtn.disabled = false;
+                submitBtn.textContent = 'Submit Inquiry';
+            }
         });
     </script>
 </body>
