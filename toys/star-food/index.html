@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Star Food</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600&display=swap">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>✶</text></svg>">
+</head>
+<body>
+  <header class="hero">
+    <p class="eyebrow">✶ Star Food ✶</p>
+    <h1>Your week of meals,<br>written in your stars.</h1>
+    <p class="lede">Give us your birth date, time and place. We calculate your full natal chart and plan breakfast, lunch and dinner for seven days, plus the shopping list.</p>
+  </header>
+
+  <main>
+    <section class="card" id="birth">
+      <form id="birth-form" autocomplete="off">
+        <div class="grid">
+          <label class="field">
+            <span>Name <em>(optional)</em></span>
+            <input type="text" id="name" placeholder="Stargazer">
+          </label>
+          <label class="field">
+            <span>Birth date</span>
+            <input type="date" id="date" required>
+          </label>
+          <label class="field">
+            <span>Birth time</span>
+            <input type="time" id="time" value="12:00">
+            <label class="check small"><input type="checkbox" id="time-unknown"> I don’t know my birth time</label>
+          </label>
+          <div class="field place-field">
+            <span>Birth place</span>
+            <input type="text" id="place" placeholder="Start typing a city…" aria-autocomplete="list" aria-controls="place-results">
+            <ul id="place-results" class="suggestions" role="listbox" hidden></ul>
+            <p id="place-chosen" class="hint"></p>
+          </div>
+        </div>
+
+        <details class="manual">
+          <summary>Enter coordinates manually</summary>
+          <div class="grid three">
+            <label class="field"><span>Latitude</span><input type="number" id="lat" step="any" min="-90" max="90" placeholder="41.88"></label>
+            <label class="field"><span>Longitude (east +)</span><input type="number" id="lon" step="any" min="-180" max="180" placeholder="-87.63"></label>
+            <label class="field"><span>Time zone</span><select id="tz"></select></label>
+          </div>
+        </details>
+
+        <div class="options">
+          <label class="check"><input type="checkbox" id="gf"> Gluten-free</label>
+          <label class="check"><input type="checkbox" id="df"> Dairy-free</label>
+          <label class="check">Cooking for
+            <select id="servings">
+              <option>1</option><option selected>2</option><option>3</option><option>4</option><option>5</option><option>6</option>
+            </select>
+          </label>
+        </div>
+
+        <p id="form-error" class="error" role="alert" hidden></p>
+        <button type="submit" class="primary">Read my stars ✶</button>
+      </form>
+    </section>
+
+    <div id="results" hidden>
+      <nav class="jump">
+        <a href="#chart">Chart</a><a href="#week">Week</a><a href="#shopping">Shopping list</a>
+        <button type="button" id="reshuffle" class="ghost">↻ Reshuffle the week</button>
+      </nav>
+
+      <section class="card" id="chart">
+        <h2 id="chart-title">Your natal chart</h2>
+        <p id="chart-sub" class="sub"></p>
+        <div class="chart-layout">
+          <div id="wheel"></div>
+          <div>
+            <table class="placements" id="placements"></table>
+            <div id="elements" class="elements"></div>
+          </div>
+        </div>
+        <div id="reading" class="reading"></div>
+      </section>
+
+      <section id="week">
+        <h2>Your week</h2>
+        <p class="sub">Breakfast follows your Rising sign, lunch your Sun and Mercury, and dinner the planet that rules each weekday. Your Moon, Venus, houses and the transiting Moon all weigh in. Tap a meal for the recipe.</p>
+        <div id="days" class="days"></div>
+      </section>
+
+      <section class="card" id="shopping">
+        <div class="shop-head">
+          <div>
+            <h2>Shopping list</h2>
+            <p class="sub" id="shop-sub"></p>
+          </div>
+          <div class="shop-actions">
+            <button type="button" id="copy-list" class="ghost">Copy</button>
+            <button type="button" id="print-list" class="ghost">Print</button>
+          </div>
+        </div>
+        <div id="list" class="list"></div>
+      </section>
+    </div>
+  </main>
+
+  <dialog id="recipe-dialog">
+    <article id="recipe-body"></article>
+    <form method="dialog"><button class="close" aria-label="Close">✕</button></form>
+  </dialog>
+
+  <footer>Planet positions are calculated in your browser with astronomy-engine. Houses use the Whole Sign system. For fun, and for dinner.</footer>
+
+  <script src="vendor/astronomy.browser.min.js"></script>
+  <script src="src/astro.js"></script>
+  <script src="src/recipes.js"></script>
+  <script src="src/planner.js"></script>
+  <script src="src/app.js"></script>
+</body>
+</html>

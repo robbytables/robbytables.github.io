@@ -1,0 +1,15 @@
+{
+  "name": "star-food",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "node --test test/"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "astronomy-engine": "^2.1.19"
+  }
+}
